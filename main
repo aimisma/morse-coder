@@ -1,0 +1,28 @@
+import string
+
+alphabet_list = list(string.ascii_lowercase)
+
+numbers_list = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+
+morse_code = [".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---",
+              "-.-", ".-..", "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-", "..-",
+              "...-", ".--", "-..-", "-.--", "--.."]
+morse_numbers = ['-----', '.----', '..---', '...--', '....-', '.....', '-....', '--...', '---..', '----.']
+
+
+message= input("Write your message, no punctuation: ").lower()
+morse_message = []
+for letter in message:
+    if letter == ' ':
+        morse_message.append(' ')
+    elif letter in numbers_list:
+        morse_message.append(morse_numbers[numbers_list.index(letter)])
+
+    elif letter in alphabet_list:
+        morse_message.append(morse_code[alphabet_list.index(letter)])
+    else:
+        morse_message.append('?')
+morse_result = ' '.join(morse_message)
+
+print(morse_result)
+
